@@ -1,0 +1,226 @@
+> db.movies.count()
+500
+> db.movies.find({movie_name: {$eq:"Country" }},{movie_name:1,movie_genre:1,_id:0}).pretty()
+{ "movie_name" : "Country", "movie_genre" : "Drama" }
+> db.movies.find({movie_name: {$ne:"Country" }},{movie_name:1,movie_genre:1,_id:0}).pretty() 
+{ "movie_name" : "Wait Until Dark", "movie_genre" : "Drama|Thriller" }
+{ "movie_name" : "Hungry Hill", "movie_genre" : "Drama" }
+{
+        "movie_name" : "Remember the Night",
+        "movie_genre" : "Comedy|Drama|Romance"
+}
+{ "movie_name" : "Home Before Dark", "movie_genre" : "Drama" }
+{
+        "movie_name" : "Lagaan: Once Upon a Time in India",
+        "movie_genre" : "Comedy|Drama|Musical|Romance"
+}
+{ "movie_name" : "Snow Queen", "movie_genre" : "Adventure|Children|Fantasy" }
+{
+        "movie_name" : "Before the Revolution (Prima della rivoluzione)",
+        "movie_genre" : "Drama|Romance"
+}
+{ "movie_name" : "The Last Farm", "movie_genre" : "Drama" }
+{
+        "movie_name" : "Captain EO",
+        "movie_genre" : "Adventure|Children|Comedy|Musical|Sci-Fi"
+}
+{ "movie_name" : "Banger Sisters, The", "movie_genre" : "Comedy|Drama" }
+{ "movie_name" : "Days of Wine and Roses", "movie_genre" : "Drama" }
+{
+        "movie_name" : "Castle in the Desert (Charlie Chan in Castle in the Desert)",
+        "movie_genre" : "Comedy|Crime|Mystery|Thriller"
+}
+{
+        "movie_name" : "Berserk: The Golden Age Arc - The Egg of the King",
+        "movie_genre" : "Action|Adventure|Animation|Fantasy|Horror"
+}
+{ "movie_name" : "The Man in Possession", "movie_genre" : "Comedy" }
+{ "movie_name" : "World Apart, A", "movie_genre" : "Drama" }
+{
+        "movie_name" : "Tuareg: The Desert Warrior (Tuareg - Il guerriero del deserto)",
+        "movie_genre" : "Action|Adventure"
+}
+{
+        "movie_name" : "Through a Glass Darkly (Såsom i en spegel)",
+        "movie_genre" : "Drama"
+}
+{ "movie_name" : "Fade to Black", "movie_genre" : "Documentary" }
+{
+        "movie_name" : "Rusalochka (The Little Mermaid)",
+        "movie_genre" : "Children|Fantasy|Musical|Romance"
+}
+{ "movie_name" : "The Divine Woman", "movie_genre" : "(no genres listed)" }
+Type "it" for more
+> db.movies.find({budget:{$gte:10000}},{"movie_name":1,"movie_genre":1,"_id":0})   
+{ "movie_name" : "Port", "movie_genre" : "Emsley" }
+{ "movie_name" : "Horatius", "movie_genre" : "Arkle" }
+{ "movie_name" : "Garold", "movie_genre" : "Maffeo" }
+{ "movie_name" : "Ulrica", "movie_genre" : "Spolton" }
+{ "movie_name" : "Jeddy", "movie_genre" : "Dugget" }
+{ "movie_name" : "Rourke", "movie_genre" : "Eddow" }
+{ "movie_name" : "Gay", "movie_genre" : "Rubega" }
+{ "movie_name" : "Denver", "movie_genre" : "Kimmince" }
+{ "movie_name" : "Mattie", "movie_genre" : "Corp" }
+{ "movie_name" : "Timmy", "movie_genre" : "Duddle" }
+{ "movie_name" : "Yardley", "movie_genre" : "Dullard" }
+{ "movie_name" : "Cyndie", "movie_genre" : "Bramley" }
+{ "movie_name" : "Clemens", "movie_genre" : "Averies" }
+{ "movie_name" : "Tammie", "movie_genre" : "Bebbington" }
+{ "movie_name" : "Lara", "movie_genre" : "Munby" }
+{ "movie_name" : "Mandie", "movie_genre" : "Kyneton" }
+{ "movie_name" : "Jory", "movie_genre" : "Dellenbrook" }
+{ "movie_name" : "Dinny", "movie_genre" : "Eustice" }
+{ "movie_name" : "Richy", "movie_genre" : "Castellini" }
+{ "movie_name" : "Sherrie", "movie_genre" : "Doiley" }
+Type "it" for more
+> db.movies.find({budget:{$lte:11000}},{"movie_name":1,"movie_genre":1,"_id":0})
+{ "movie_name" : "Horatius", "movie_genre" : "Arkle" }
+{ "movie_name" : "Hector", "movie_genre" : "Stonhard" }
+{ "movie_name" : "Gay", "movie_genre" : "Rubega" }
+{ "movie_name" : "Timmy", "movie_genre" : "Duddle" }   
+{ "movie_name" : "Morton", "movie_genre" : "Gander" }
+{ "movie_name" : "Alisun", "movie_genre" : "Crowe" }
+{ "movie_name" : "Stefania", "movie_genre" : "McKevany" }
+{ "movie_name" : "Portia", "movie_genre" : "Brawley" }
+{ "movie_name" : "Emili", "movie_genre" : "Baynes" }
+{ "movie_name" : "Wylie", "movie_genre" : "MacCurlye" }
+{ "movie_name" : "Darcie", "movie_genre" : "Rebbeck" }
+{ "movie_name" : "Brand", "movie_genre" : "Snawden" }
+{ "movie_name" : "Luci", "movie_genre" : "Thurlbourne" }
+{ "movie_name" : "Berta", "movie_genre" : "Copner" }
+{ "movie_name" : "Samara", "movie_genre" : "Capron" }
+{ "movie_name" : "Bronny", "movie_genre" : "Boylan" }
+{ "movie_name" : "Frayda", "movie_genre" : "Cluff" }
+{ "movie_name" : "Bibi", "movie_genre" : "Berndsen" }
+{ "movie_name" : "Minnnie", "movie_genre" : "Aleixo" }
+{ "movie_name" : "Winni", "movie_genre" : "Renforth" }
+Type "it" for more
+> db.movies.find({$and:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1,production_year:1,_id:0}).pretty()
+{ "movie_name" : "Port", "production_year" : 2017 }    
+{ "movie_name" : "Horatius", "production_year" : 2008 }
+{ "movie_name" : "Jeddy", "production_year" : 2010 }   
+{ "movie_name" : "Rourke", "production_year" : 2016 }  
+{ "movie_name" : "Gay", "production_year" : 2003 }     
+{ "movie_name" : "Denver", "production_year" : 2020 }  
+{ "movie_name" : "Mattie", "production_year" : 2003 }  
+{ "movie_name" : "Timmy", "production_year" : 2011 }   
+{ "movie_name" : "Yardley", "production_year" : 2002 } 
+{ "movie_name" : "Cyndie", "production_year" : 2013 }  
+{ "movie_name" : "Clemens", "production_year" : 2006 } 
+{ "movie_name" : "Tammie", "production_year" : 2015 }  
+{ "movie_name" : "Lara", "production_year" : 2006 }    
+{ "movie_name" : "Mandie", "production_year" : 2012 }
+{ "movie_name" : "Jory", "production_year" : 2002 }
+{ "movie_name" : "Richy", "production_year" : 2017 }
+{ "movie_name" : "Sherrie", "production_year" : 2016 }
+{ "movie_name" : "Brigg", "production_year" : 2009 }
+{ "movie_name" : "Portia", "production_year" : 2005 }
+{ "movie_name" : "Bartholemy", "production_year" : 2001 }
+Type "it" for more
+ > db.movies.find({$or:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1,production_year:1,_id:0}).pretty()
+{ "movie_name" : "Port", "production_year" : 2017 }
+{ "movie_name" : "Horatius", "production_year" : 2008 }
+{ "movie_name" : "Garold", "production_year" : 1993 }
+{ "movie_name" : "Ulrica", "production_year" : 1995 }
+{ "movie_name" : "Hector", "production_year" : 2002 }
+{ "movie_name" : "Jeddy", "production_year" : 2010 }
+{ "movie_name" : "Rourke", "production_year" : 2016 }
+{ "movie_name" : "Gay", "production_year" : 2003 }
+{ "movie_name" : "Denver", "production_year" : 2020 }
+{ "movie_name" : "Mattie", "production_year" : 2003 }
+{ "movie_name" : "Timmy", "production_year" : 2011 }
+{ "movie_name" : "Morton", "production_year" : 2015 }
+{ "movie_name" : "Yardley", "production_year" : 2002 }
+{ "movie_name" : "Cyndie", "production_year" : 2013 }
+{ "movie_name" : "Clemens", "production_year" : 2006 }
+{ "movie_name" : "Tammie", "production_year" : 2015 }
+{ "movie_name" : "Lara", "production_year" : 2006 }
+{ "movie_name" : "Mandie", "production_year" : 2012 }
+{ "movie_name" : "Jory", "production_year" : 2002 }
+{ "movie_name" : "Dinny", "production_year" : 1994 }
+Type "it" for more
+> db.movies.find({$nor:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1,production_year:1,_id:0}).pretty()
+{ "movie_name" : "Alisun", "production_year" : 2000 }
+{ "movie_name" : "Stefania", "production_year" : 2000 }
+{ "movie_name" : "Berta", "production_year" : 1995 }
+{ "movie_name" : "Bronny", "production_year" : 1995 }
+{ "movie_name" : "Terra", "production_year" : 1996 }
+{ "movie_name" : "Nanny", "production_year" : 1996 }
+{ "movie_name" : "Gabrila", "production_year" : 1990 }
+{ "movie_name" : "Christoper", "production_year" : 1992 }
+{ "movie_name" : "Raffaello", "production_year" : 1990 }
+{ "movie_name" : "Eba", "production_year" : 1992 }
+{ "movie_name" : "Mahalia", "production_year" : 1998 }
+{ "movie_name" : "Jeffy", "production_year" : 2000 }
+> db.movies.find({$or:[{production_year:{$ne:2000}},{budget:{$ne:10000}}]},{movie_name:1,production_year:1,_id:0}).pretty()
+{ "movie_name" : "Port", "production_year" : 2017 }
+{ "movie_name" : "Horatius", "production_year" : 2008 }
+{ "movie_name" : "Garold", "production_year" : 1993 }
+{ "movie_name" : "Ulrica", "production_year" : 1995 }
+{ "movie_name" : "Hector", "production_year" : 2002 }
+{ "movie_name" : "Jeddy", "production_year" : 2010 }
+{ "movie_name" : "Rourke", "production_year" : 2016 }
+{ "movie_name" : "Gay", "production_year" : 2003 }
+{ "movie_name" : "Denver", "production_year" : 2020 }
+{ "movie_name" : "Mattie", "production_year" : 2003 }
+{ "movie_name" : "Timmy", "production_year" : 2011 }
+{ "movie_name" : "Morton", "production_year" : 2015 }
+{ "movie_name" : "Yardley", "production_year" : 2002 }
+{ "movie_name" : "Alisun", "production_year" : 2000 }
+{ "movie_name" : "Cyndie", "production_year" : 2013 }
+{ "movie_name" : "Clemens", "production_year" : 2006 }
+{ "movie_name" : "Tammie", "production_year" : 2015 }
+{ "movie_name" : "Stefania", "production_year" : 2000 }
+{ "movie_name" : "Lara", "production_year" : 2006 }
+{ "movie_name" : "Mandie", "production_year" : 2012 }
+Type "it" for more
+> db.movies.find({$and:[{production_year:{$gte:2000}},{production_year:{$lte:2010}}]},{movie_name:1,production_year:1,_id:0}).pretty()
+{ "movie_name" : "Horatius", "production_year" : 2008 }
+{ "movie_name" : "Hector", "production_year" : 2002 }
+{ "movie_name" : "Jeddy", "production_year" : 2010 }
+{ "movie_name" : "Gay", "production_year" : 2003 }
+{ "movie_name" : "Mattie", "production_year" : 2003 }
+{ "movie_name" : "Yardley", "production_year" : 2002 }
+{ "movie_name" : "Alisun", "production_year" : 2000 }
+{ "movie_name" : "Clemens", "production_year" : 2006 }
+{ "movie_name" : "Stefania", "production_year" : 2000 }
+{ "movie_name" : "Lara", "production_year" : 2006 }
+{ "movie_name" : "Jory", "production_year" : 2002 }
+{ "movie_name" : "Brigg", "production_year" : 2009 }
+{ "movie_name" : "Portia", "production_year" : 2005 }
+{ "movie_name" : "Bartholemy", "production_year" : 2001 }
+{ "movie_name" : "Georgy", "production_year" : 2003 }
+{ "movie_name" : "Emili", "production_year" : 2010 }
+{ "movie_name" : "Darcie", "production_year" : 2004 }
+{ "movie_name" : "Kristel", "production_year" : 2001 }
+{ "movie_name" : "Cate", "production_year" : 2007 }
+{ "movie_name" : "Candis", "production_year" : 2010 }
+Type "it" for more
+> db.movies.find({},{movie_name:1,production_year:1,_id:0}).sort({production_year:-1,movie_name:1}).pretty()
+{ "movie_name" : "Alvan", "production_year" : 2020 }
+{ "movie_name" : "Brian", "production_year" : 2020 }
+{ "movie_name" : "Cookie", "production_year" : 2020 }
+{ "movie_name" : "Denver", "production_year" : 2020 }
+{ "movie_name" : "Dorita", "production_year" : 2020 }
+{ "movie_name" : "Elisabeth", "production_year" : 2020 }
+{ "movie_name" : "Estrella", "production_year" : 2020 }
+{ "movie_name" : "Jewel", "production_year" : 2020 }
+{ "movie_name" : "Leshia", "production_year" : 2020 }
+{ "movie_name" : "Maddalena", "production_year" : 2020 }
+{ "movie_name" : "Margaretha", "production_year" : 2020 }
+{ "movie_name" : "Marrissa", "production_year" : 2020 }
+{ "movie_name" : "Matelda", "production_year" : 2020 }
+{ "movie_name" : "Maurice", "production_year" : 2020 }
+{ "movie_name" : "Anatole", "production_year" : 2019 }
+{ "movie_name" : "Bride", "production_year" : 2019 }
+{ "movie_name" : "Brigid", "production_year" : 2019 }
+{ "movie_name" : "Celka", "production_year" : 2019 }
+{ "movie_name" : "Danielle", "production_year" : 2019 }
+{ "movie_name" : "Ellie", "production_year" : 2019 }
+Type "it" for more
+> db.movies.find({},{movie_name:1,production_year:1,_id:0}).sort({production_year:-1,movie_name:1}).skip(10).limit(5).pretty()
+{ "movie_name" : "Margaretha", "production_year" : 2020 }
+{ "movie_name" : "Marrissa", "production_year" : 2020 }
+{ "movie_name" : "Matelda", "production_year" : 2020 }
+{ "movie_name" : "Maurice", "production_year" : 2020 }
+{ "movie_name" : "Anatole", "production_year" : 2019 }
