@@ -1,0 +1,214 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\viraj\Documents\unit 4> mongo
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("51b19994-c1b6-4a93-a95d-fe5348fdc29d") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2022-03-09T07:57:00.059+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use assignment_and_collection 
+switched to db assignment_and_collection
+> db
+assignment_and_collection
+> db.createCollection("users")
+{ "ok" : 1 }
+> db.users.insert({"first_name":"viraj","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"Male","ip_address":"127.22.33.4","age":"27"})
+> db.users.insert({"first_name":"raj","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"Male","ip_address":"127.22.33.4","age":"27"})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"raj","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"Male","ip_address":"127.22.33.4","age":"27"})
+Wrdb.users.insertMany([{"first_name":"raj","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"Male","ip_address":"127.22.33.4","age":"27"},{"first_name":"raj","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"Male","ip_address":"127.22.33.4","age":"27"}])p_address":"127.22.33.4","age":"27"}]){
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("622847a973e5abb18c1106a3"),
+                ObjectId("622847a973e5abb18c1106a4")
+        ]
+}
+> db.users.insertMany([{"first_name":"arun","last_name":"verma","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"},{"first_name":"nisha","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("622847e973e5abb18c1106a5"),
+                ObjectId("622847e973e5abb18c1106a6")
+        ]
+}
+> db.users.insertMany([{"first_name":"arun","last_name":"verma","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"},{"first_name":"nisha","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("622847f173e5abb18c1106a7"),
+                ObjectId("622847f173e5abb18c1106a8")
+        ]
+}
+> db.users.insertMany([{"first_name":"arun","last_name":"verma","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"},{"first_name":"nisha","last_name":"gupta","email":"viraj.gupta@gmail.com","gender":"FeMale","ip_address":"127.22.33.4","age":"27"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("622847f273e5abb18c1106a9"),
+                ObjectId("622847f273e5abb18c1106aa")
+        ]
+}
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("622845ab73e5abb18c1106a0"),
+        "first_name" : "viraj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622845d373e5abb18c1106a1"),
+        "first_name" : "raj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("6228475573e5abb18c1106a2"),
+        "first_name" : "raj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847a973e5abb18c1106a3"),
+        "first_name" : "raj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847a973e5abb18c1106a4"),
+        "first_name" : "raj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847e973e5abb18c1106a5"),
+        "first_name" : "arun",
+        "last_name" : "verma",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847e973e5abb18c1106a6"),
+        "first_name" : "nisha",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847f173e5abb18c1106a7"),
+        "first_name" : "arun",
+        "last_name" : "verma",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847f173e5abb18c1106a8"),
+        "first_name" : "nisha",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847f273e5abb18c1106a9"),
+        "first_name" : "arun",
+        "last_name" : "verma",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("622847f273e5abb18c1106aa"),
+        "first_name" : "nisha",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "FeMale",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+> db.users.findOne({})       
+{
+        "_id" : ObjectId("622845ab73e5abb18c1106a0"),
+        "first_name" : "viraj",
+        "last_name" : "gupta",
+        "email" : "viraj.gupta@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "127.22.33.4",
+        "age" : "27"
+}
+db.users.update({"first_name":"viraj"},{$set:{"first_name":"rituraj"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.users.updateMany({"first_name":"raj"},{$set:{"first_name":"aj"}})
+{ "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 3 }    
+> db.users.remove({"first_name":"aj"})                                   
+WriteResult({ "nRemoved" : 4 })
+> db.users.remove({"first_name":"arun"},1)
+WriteResult({ "nRemoved" : 1 })
+> db.users.deleteOne({"first_name":"arun"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.users.deleteMany({"first_name":"nisha"})
+{ "acknowledged" : true, "deletedCount" : 3 }
+> db.users.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 2 }
+
+> db.users.drop()
+true
+> show collections
+>
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>
