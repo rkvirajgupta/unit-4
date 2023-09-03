@@ -7,7 +7,7 @@ const { default: mongoose } = require("mongoose");
 const { type } = require("os");
 
 const connectDb= ()=>{
-    return mongoose.connnect("mongodb+srv://virajgupta:Virajgupta12345@cluster0.wmplk.mongodb.net/test")
+    return mongoose.connnect(`mongodb+srv://${env.SECRET_KEY}@cluster0.wmplk.mongodb.net/test`)
 };
 //users details
 const userSchema = mongoose.Schema({
